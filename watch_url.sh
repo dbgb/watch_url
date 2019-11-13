@@ -56,7 +56,9 @@ while getopts ":hCcu:U:f:" OPT; do
 done
 
 # Auto-delete log file at max size
-[[ $(du -k "$LOG_NAME" | cut -f 1) -ge $LOG_MAX_SIZE ]] && rm "$LOG_NAME"
+if [[ -e "$LOG_NAME" ]]; then
+  [[ $(du -k "$LOG_NAME" | cut -f 1) -ge $LOG_MAX_SIZE ]] && rm "$LOG_NAME"
+fi
 
 while true; do
   [[ $CLEAR_TERM ]] && clear;
