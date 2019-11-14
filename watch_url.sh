@@ -28,7 +28,7 @@ while getopts ":hCcu:U:f:" OPT; do
       exit 0
       ;;
     C)
-      rm -iv "$LOG_NAME"
+      [[ -e "$LOG_NAME" ]] && rm -v "$LOG_NAME"
       exit 0
       ;;
     c)
