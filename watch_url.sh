@@ -25,11 +25,11 @@ while getopts ":hCcu:U:f:" OPT; do
   case $OPT in
     h)
       usage
-      exit 1
+      exit 0
       ;;
     C)
       rm -iv "$LOG_NAME"
-      exit 1
+      exit 0
       ;;
     c)
       CLEAR_TERM=true
